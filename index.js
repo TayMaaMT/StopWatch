@@ -2,6 +2,9 @@ const start = document.querySelector("#start");
 const Stop = document.querySelector("#stop");
 const reset = document.querySelector("#reset");
 const HTMLtime = document.querySelector("time");
+const divMinutes = document.querySelector(".minutes");
+const divSeconds = document.querySelector(".seconds");
+const divMillsec = document.querySelector(".millsec");
 let WatchTime = 0;
 let timerInterval;
 const StartWatch = () => {
@@ -12,16 +15,30 @@ const StartWatch = () => {
         let minutes = time.getMinutes();
         let seconds = time.getSeconds();
         let Milliseconds = Math.floor(time.getMilliseconds() / 10);
-        HTMLtime.textContent = `${minutes}:${seconds}:${Milliseconds}`
+        const desplay = minutes ? "inline" : "none";
+        divMinutes.style.display = desplay;
+        divMinutes.textContent = ` ${minutes}`
+        divSeconds.textContent = ` ${seconds}`
+        divMillsec.textContent = ` ${Milliseconds}`
     }, 10);
+    Stop.style.display = "inline";
+    start.style.display = "none";
 }
 const stopWatch = () => {
+    start.style.display = "inline";
+    Stop.style.display = "none";
     clearInterval(timerInterval);
+    divMinutes.textContent = ` ${minutes}`
+    divSeconds.textContent = ` ${seconds}`
+    divMillsec.textContent = ` ${Milliseconds}`
+
 }
 
 const resetWatch = () => {
     clearInterval(timerInterval);
-    HTMLtime.textContent = `00:00:00`;
+    divMinutes.style.display = "none";
+    divSeconds.textContent = ` 0`
+    divMillsec.textContent = ` 00`
     WatchTime = 0;
 }
 

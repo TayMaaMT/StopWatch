@@ -2,14 +2,27 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-    <h1><time>00:00:00</time></h1>
-    <button id="start">start</button>
-    <button id="stop">stop</button>
-    <button id="reset">clear</button>
+
+    <div class="container">
+        <div class="watch">
+            <div class="stopwatch focus">stopwatch</div>
+            <div class="timer">timer</div>
+        </div>
+        <div class="StopTime">
+            <h1><time><span class="minutes">0</span><span class="str minutes">m </span>
+                <span class="seconds"> 0</span><span class="str seconds">s </span><span class="millsec"> 00</span>
+            </time></h1>
+        </div>
+        <div class="buttons">
+            <button id="start">start</button>
+            <button id="stop">stop</button>
+            <button id="reset">clear</button>
+        </div>
+    </div>
 
 
     <script src="index.js"></script>
